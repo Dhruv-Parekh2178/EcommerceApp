@@ -48,7 +48,7 @@ public class CategoryController {
       }
 
 //      @PutMapping("/api/admin/categories/{categoryId}")
-      @PutMapping("/api/admin/categories/{categoryId}")
+      @PutMapping("/admin/categories/{categoryId}")
     public ResponseEntity<String> updateCategory(@RequestBody Category category,@PathVariable Long categoryId){
         try{
             Category savedCategory = categoryService.UpdateCategory(category, categoryId);
