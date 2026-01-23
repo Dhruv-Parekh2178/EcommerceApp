@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequiredArgsConstructor
 @RequestMapping("api/product")
 public class ProductController {
@@ -24,7 +24,7 @@ public class ProductController {
            return new ResponseEntity<>(products , HttpStatus.OK);
     }
 
-    @PostMapping("/addProducts")
+    @PostMapping("/addProduct")
     public ResponseEntity<String> addProduct(@RequestBody Product product){
         productService.addProduct(product);
         return new ResponseEntity<>("product added successfully" , HttpStatus.OK);

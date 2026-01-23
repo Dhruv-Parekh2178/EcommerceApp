@@ -19,22 +19,22 @@ import java.util.stream.Collectors;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(HttpMessageNotReadableException.class)
-    public ResponseEntity<ApiResponse> handleRuntime(HttpMessageNotReadableException ex){
-
-//        List<String> errors = ex.getBindingResult().getFieldErrors().stream()
-//                .map(e -> e.getDefaultMessage())
-//                .collect(Collectors.toList());
-        String errors = ex.getMessage();
-
-        ApiResponse response = new ApiResponse();
-        response.setCode(400);
-        response.setStatus(false);
-        Map<String,Object> error = new HashMap<>();
-        error.put("error",errors);
-        response.setData(error);
-        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
-    }
+//    @ExceptionHandler(HttpMessageNotReadableException.class)
+//    public ResponseEntity<ApiResponse> handleRuntime(HttpMessageNotReadableException ex){
+//
+////        List<String> errors = ex.getBindingResult().getFieldErrors().stream()
+////                .map(e -> e.getDefaultMessage())
+////                .collect(Collectors.toList());
+//        String errors = ex.getMessage();
+//
+//        ApiResponse response = new ApiResponse();
+//        response.setCode(400);
+//        response.setStatus(false);
+//        Map<String,Object> error = new HashMap<>();
+//        error.put("error",errors);
+//        response.setData(error);
+//        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+//    }
 
 
 }

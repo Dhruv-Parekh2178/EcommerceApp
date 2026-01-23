@@ -25,16 +25,18 @@ public class CategoryController {
 
     @GetMapping("/public/categories")
 //    @GetMapping("/api/public/categories")
-    public ResponseEntity<ApiResponse> getAllCategories() {
+//    public ResponseEntity<ApiResponse> getAllCategories() {
+        public ResponseEntity<List<Category>> getAllCategories() {
         List<Category> categories = categoryService.getAllCategories();
-        ApiResponse apiResponse = new ApiResponse();
-        apiResponse.setCode(200);
-        apiResponse.setStatus(true);
-        apiResponse.setData(categories);
-        System.err.println("Error : -> " + apiResponse.toString());
-        log.error(apiResponse.toString());
-        log.warn(apiResponse.toString());
-        return ResponseEntity.ok(apiResponse);
+//        ApiResponse apiResponse = new ApiResponse();
+//        apiResponse.setCode(200);
+//        apiResponse.setStatus(true);
+//        apiResponse.setData(categories);
+//        System.err.println("Error : -> " + apiResponse.toString());
+//        log.error(apiResponse.toString());
+//        log.warn(apiResponse.toString());
+//        return ResponseEntity.ok(apiResponse);
+        return new ResponseEntity<>(categories, HttpStatus.OK);
     }
 
 //    @PostMapping("/api/public/categories")
@@ -61,7 +63,7 @@ public class CategoryController {
       @PutMapping("/admin/categories/{categoryId}")
     public ResponseEntity<String> updateCategory(@RequestBody Category category,@PathVariable Long categoryId){
         try{
-            Category savedCategory = categoryService.UpdateCategory(category, categoryId);
+            Category savedCategory = categoryService.UpdateCategoryById(category, categoryId);
             return new ResponseEntity<>("Category with categoryId " + categoryId + " updated.", HttpStatus.OK);
         }catch (ResponseStatusException e){
             return new ResponseEntity<>(e.getReason() , e.getStatusCode());

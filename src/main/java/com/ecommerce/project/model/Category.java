@@ -20,11 +20,11 @@ public class Category {
     private Long categoryId;
 
     @Column(
-            name = "category_name",
-            columnDefinition = "TEXT DEFAULT '20'"
+            name = "category_name"
+//            columnDefinition = "TEXT DEFAULT '20'"
     )
     private String categoryName;
 
-    private String test;
+//    private String test;
 }
 
